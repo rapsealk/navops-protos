@@ -1,0 +1,10 @@
+__pycache__/
+
+# Binary
+*.exe
+
+# Python
+*_pb2*.py
+
+# C#
+*.cs

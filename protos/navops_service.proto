@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package navops;
+
+message EnvironmentStepRequest {
+    uint32 size = 1;
+    repeated uint32 actions = 2;
+}
+
+message EnvironmentStepResponse {
+    Observation obs = 1;
+    float reward = 2;
+    bool done = 3;
+}
+
+message Observation {
+    uint32 size = 1;
+    repeated float values = 2;
+}
+
+service NavOpsGrpcService {
+    rpc CallEnvironmentStep (EnvironmentStepRequest) returns (EnvironmentStepResponse) {}
+}
