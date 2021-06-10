@@ -4,15 +4,27 @@ package navops;
 
 option csharp_namespace = "NavOps.Grpc";
 
+message HeartbeatRequest {
+    
+}
+
+message HeartbeatResponse {
+    bool succeed = 1;
+}
+
 message EnvironmentStepRequest {
-    uint32 size = 1;
-    repeated uint32 actions = 2;
+    repeated DiscreteActionSpace actions = 1;
 }
 
 message EnvironmentStepResponse {
     Observation obs = 1;
     float reward = 2;
     bool done = 3;
+}
+
+message DiscreteActionSpace {
+    uint32 maneuver_action_id = 1;
+    uint32 attack_action_id = 2;
 }
 
 message Observation {
@@ -61,5 +73,6 @@ message AimingPoint {
 }
 
 service NavOpsGrpcService {
+    rpc RequestHeartbeat (HeartbeatRequest) returns (HeartbeatResponse) {}
     rpc CallEnvironmentStep (EnvironmentStepRequest) returns (EnvironmentStepResponse) {}
 }
