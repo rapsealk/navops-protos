@@ -29,12 +29,13 @@ message DiscreteActionSpace {
 
 message Observation {
     repeated FleetObservation fleets = 1;
-    repeated float target_index_onehot = 2;
-    repeated float raycast_hits = 3;
-    repeated Battery batteries = 4;
-    float ammo = 5;
-    repeated float speed_level_onehot = 6;
-    repeated float steer_level_onehot = 7;
+    repeated float dominance = 2;
+    repeated float target_index_onehot = 3;
+    repeated float raycast_hits = 4;
+    repeated Battery batteries = 5;
+    float ammo = 6;
+    repeated float speed_level_onehot = 7;
+    repeated float steer_level_onehot = 8;
 }
 
 message FleetObservation {
