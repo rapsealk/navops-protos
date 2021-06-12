@@ -32,10 +32,9 @@ message Observation {
     repeated float target_index_onehot = 2;
     repeated float raycast_hits = 3;
     repeated Battery batteries = 4;
-    AimingPoint aiming_point = 5;
-    float ammo = 6;
-    repeated float speed_level_onehot = 7;
-    repeated float steer_level_onehot = 8;
+    float ammo = 5;
+    repeated float speed_level_onehot = 6;
+    repeated float steer_level_onehot = 7;
 }
 
 message FleetObservation {
@@ -46,15 +45,15 @@ message FleetObservation {
     bool detected = 5;
     Position position = 6;
     Rotation rotation = 7;
+    uint32 timestamp = 8;
 }
 
 message Battery {
-    float tilt = 1;
-    Rotation rotation = 2;
-    bool reloaded = 3;
-    float cooldown = 4;
-    bool damaged = 5;
-    float repair_progression = 6;
+    Rotation rotation = 1;
+    bool reloaded = 2;
+    float cooldown = 3;
+    bool damaged = 4;
+    float repair_progress = 5;
 }
 
 message Position {
@@ -65,11 +64,6 @@ message Position {
 message Rotation {
     float cos = 1;
     float sin = 2;
-}
-
-message AimingPoint {
-    repeated float range_onehot = 1;
-    Rotation rotation = 2;
 }
 
 service NavOpsGrpcService {
