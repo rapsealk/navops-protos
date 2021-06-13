@@ -29,7 +29,7 @@ message DiscreteActionSpace {
 
 message Observation {
     repeated FleetObservation fleets = 1;
-    repeated float dominance = 2;
+    repeated Location locations = 2;
     repeated float target_index_onehot = 3;
     repeated float raycast_hits = 4;
     repeated Battery batteries = 5;
@@ -47,6 +47,11 @@ message FleetObservation {
     Position position = 6;
     Rotation rotation = 7;
     uint32 timestamp = 8;
+}
+
+message Location {
+    float dominance = 1;
+    Position position = 2;
 }
 
 message Battery {
