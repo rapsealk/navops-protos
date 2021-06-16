@@ -36,6 +36,7 @@ message Observation {
     float ammo = 6;
     repeated float speed_level_onehot = 7;
     repeated float steer_level_onehot = 8;
+    repeated Position obstacle_positions = 9;
 }
 
 message FleetObservation {
